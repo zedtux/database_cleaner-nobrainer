@@ -24,6 +24,8 @@ dev:
     COPY +deps/bundler /usr/local/bundle
 
     COPY *.gemspec /adapter
+    COPY LICENSE.txt /adapter
+    COPY README.md /adapter
     COPY bin/ /adapter/bin/
     COPY gemfiles/ /adapter/gemfiles/
     COPY .rspec /adapter
@@ -31,11 +33,12 @@ dev:
     COPY Rakefile /adapter
 
     COPY Gemfile* /adapter
+    COPY lib/database_cleaner/nobrainer/version.rb /adapter/lib/database_cleaner/nobrainer/
+
+    RUN bundle install --jobs $(nproc)
 
     COPY lib/ /adapter/lib/
     COPY spec/ /adapter/spec/
-
-    RUN bundle install --jobs $(nproc)
 
     ENTRYPOINT ["bundle", "exec"]
     CMD ["rake"]
@@ -62,3 +65,10 @@ rspec:
                           zedtux/database_cleaner-nobrainer:latest \
             && docker-compose down
     END
+
+publish:
+    FROM +dev
+
+    COPY .git/ /adapter/.git
+
+    RUN bundle exec rake release
