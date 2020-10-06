@@ -47,12 +47,15 @@ rspec:
 
     COPY docker-compose.yml ./
 
+    RUN pwd
+
     WITH DOCKER
         DOCKER PULL rethinkdb:2.4-buster-slim
 
         DOCKER LOAD +dev zedtux/database_cleaner-nobrainer:latest
 
-        RUN docker-compose up -d \
+        RUN pwd \
+            && docker-compose up -d \
             && docker run --network=host \
                           zedtux/database_cleaner-nobrainer:latest \
             && docker-compose down
