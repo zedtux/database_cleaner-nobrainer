@@ -27,7 +27,6 @@ dev:
     COPY bin/ /adapter/bin/
     COPY gemfiles/ /adapter/gemfiles/
     COPY .rspec /adapter
-    COPY .rspec_status /adapter
     COPY Appraisals /adapter
     COPY Rakefile /adapter
 
