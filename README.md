@@ -1,5 +1,7 @@
 # Database Cleaner Adapter for Nobrainer
 
+[![Build Status](https://travis-ci.com/zedtux/database_cleaner-nobrainer.svg?branch=master)](https://travis-ci.com/zedtux/database_cleaner-nobrainer)
+
 Clean your Nobrainer databases with Database Cleaner.
 
 See https://github.com/DatabaseCleaner/database_cleaner for more information.
