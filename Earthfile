@@ -35,6 +35,8 @@ dev:
     COPY lib/ /adapter/lib/
     COPY spec/ /adapter/spec/
 
+    RUN bundle install --jobs $(nproc)
+
     ENTRYPOINT ["bundle", "exec"]
     CMD ["rake"]
 
