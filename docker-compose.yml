@@ -8,6 +8,7 @@ services:
       - 8080:8080
   adapter:
     build: .
+    image: zedtux/database_cleaner-nobrainer:latest
     depends_on:
       - rethinkdb
     environment:

@@ -1,11 +1,6 @@
-language: ruby
-addons:
-  rethinkdb: '2.3'
-rvm:
-  - 2.5
-  - 2.6
-  - 2.7
-gemfile:
-  - gemfiles/nobrainer0.gemfile
-before_script:
-  - bin/setup
+language: minimal
+services:
+  - docker
+script:
+  - wget https://github.com/earthly/earthly/releases/download/v0.3.6/earth-linux-amd64 -O earth && chmod +x earth
+  - earth -P +rspec
