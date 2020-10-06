@@ -1,24 +1,26 @@
-require "bundler/setup"
-require "byebug"
+# frozen_string_literal: true
+
+require 'bundler/setup'
+require 'byebug'
 
 if ENV['COVERAGE'] == 'true'
-  require "simplecov"
+  require 'simplecov'
 
   if ENV['CI'] == 'true'
     require 'codecov'
     SimpleCov.formatter = SimpleCov::Formatter::Codecov
-    puts "required codecov"
+    puts 'required codecov'
   end
 
   SimpleCov.start
-  puts "required simplecov"
+  puts 'required simplecov'
 end
 
-require "database_cleaner-mongoid"
+require 'database_cleaner-nobrainer'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
-  config.example_status_persistence_file_path = ".rspec_status"
+  config.example_status_persistence_file_path = '.rspec_status'
 
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with

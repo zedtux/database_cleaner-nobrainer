@@ -1,13 +1,13 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 # Specify your gem's dependencies in database_cleaner-mongoid.gemspec
 gemspec
 
-gem "database_cleaner-core", git: "https://github.com/DatabaseCleaner/database_cleaner"
+gem 'database_cleaner-core', git: 'https://github.com/DatabaseCleaner/database_cleaner'
 
-gem "byebug"
+gem 'byebug'
 
 group :test do
-  gem "simplecov", require: false
-  gem "codecov", require: false
+  gem 'codecov', require: false
+  gem 'simplecov', require: false
 end

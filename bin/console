@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "database_cleaner/mongoid"
+require 'bundler/setup'
+require 'nobrainer'
+require 'database_cleaner/nobrainer'
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -10,5 +11,9 @@ require "database_cleaner/mongoid"
 # require "pry"
 # Pry.start
 
-require "irb"
+NoBrainer.configure do |config|
+  config.app_name = 'database_cleaner-nobrainer'
+end
+
+require 'irb'
 IRB.start(__FILE__)
