@@ -2,5 +2,5 @@ language: minimal
 services:
   - docker
 script:
-  - wget https://github.com/earthly/earthly/releases/download/v0.3.6/earth-linux-amd64 -O earth && chmod +x earth
+  - wget https://github.com/earthly/earthly/releases/download/v0.3.9/earth-linux-amd64 -O earth && chmod +x earth
   - ./earth -P +rspec
