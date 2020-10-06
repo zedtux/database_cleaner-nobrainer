@@ -1,0 +1,10 @@
+docker:
+  # Official docker image.
+  image: docker:git
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.3.9/earth-linux-amd64 -O /usr/local/bin/earth && chmod +x /usr/local/bin/earth'
+  script:
+    - earth -P +rspec
