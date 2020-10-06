@@ -69,6 +69,15 @@ rspec:
 publish:
     FROM +dev
 
-    COPY .git/ /adapter/.git
+    ARG RUBYGEMS_ORG_API_KEY
 
-    RUN bundle exec rake release
+    RUN rm -f /adapter/.rspec \
+        && rm -rf /adapter/spec \
+        && mkdir /root/.gem \
+        && echo "---" > /root/.gem/credentials \
+        && echo ":rubygems_api_key: $RUBYGEMS_ORG_API_KEY" >> /root/.gem/credentials \
+        && chmod 600 /root/.gem/credentials \
+        && git init \
+        && git add . \
+        && gem build database_cleaner-nobrainer.gemspec \
+        && gem push database_cleaner-nobrainer*.gem

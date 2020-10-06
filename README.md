@@ -48,6 +48,16 @@ DatabaseCleaner[:nobrainer, connection: :shard_1]
 DatabaseCleaner[:nobrainer, connection: :shard_2]
 ```
 
+## Earthfile
+
+The `Earthfile` is to be used with [Earthly](https://www.earthly.dev).
+
+To build the development Docker image, simply run `earth +dev`.
+To run the tests, run `earth -P +rspec`
+To publish a new version of the gem, run `earth --build-arg RUBYGEMS_ORG_API_KEY=$(cat ~/.gem/credentials | grep :rubygems_api_key | awk '{print $2}') +publish`
+
+Please look at [the Earthly documentation](https://docs.earthly.dev) for more.
+
 ## COPYRIGHT
 
 See [LICENSE](LICENSE) for details.
